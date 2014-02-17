@@ -12,5 +12,6 @@ After cloning this repository and checking out a branch, you will need to run th
 
 ```javascript
 npm install
+```
 
 This will set up all dependencies so you are able to start developing.
