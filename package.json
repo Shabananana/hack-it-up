@@ -1,0 +1,36 @@
+{
+  "name": "xp-tracker",
+  "description": "Web app to track office XP awarded with achievements, leveling and avatars",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.1.0",
+    "jade": "*",
+    "formidable": "*",
+    "async": "*",
+    "request": "*",
+    "node-inspector": "*",
+    "gulp": "*",
+    "mocha": "*",
+    "mongodb": "*"
+  },
+  "devDependencies": {
+    "gulp": "~3.4.0",
+    "gulp-rename": "~1.0.0",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-clean": "~0.2.4",
+    "gulp-livereload": "~1.1.1",
+    "gulp-concat": "~2.1.7",
+    "tiny-lr": "0.0.5",
+    "gulp-notify": "~0.6.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-autoprefixer": "0.0.6",
+    "gulp-jshint": "~1.4.2",
+    "gulp-cache": "~0.1.1",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-less": "~1.2.1"
+  }
+}
