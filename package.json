@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "express": "3.1.0",
+    "express-flash": "~0.0.2",
+    "express-validator": "~1.0.1",
     "jade": "*",
     "formidable": "*",
     "async": "*",
@@ -15,7 +17,10 @@
     "node-inspector": "*",
     "gulp": "*",
     "mocha": "*",
-    "mongodb": "*"
+    "mongoose": "*",
+    "underscore": "~1.6.0",
+    "less": "~1.6.3",
+    "passport": "~0.2.0"
   },
   "devDependencies": {
     "gulp": "~3.4.0",
