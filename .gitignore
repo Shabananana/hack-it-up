@@ -1,2 +1,10 @@
-/Node_Modules
-configuration.js
+.DS_Store
+.nodemonignore
+.sass-cache/
+.bower-*/
+.idea/
+node_modules/
+public/lib
+test/coverage
+mean.iml
+/public/build/
