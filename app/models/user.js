@@ -122,7 +122,18 @@ UserSchema.methods = {
         if (!password || !this.salt) return '';
         var salt = new Buffer(this.salt, 'base64');
         return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
-    }
+    },
+
+    /**
+     * Maps a User record to an object suitible to write out on the UI,
+     * discarding any sensative information.
+     * @return {Object}
+     */
+    mapToUi: function() {
+            return {
+                name: this.name
+            };
+        }
 };
 
 mongoose.model('User', UserSchema);
