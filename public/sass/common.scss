@@ -1,0 +1,52 @@
+//Set defaults
+//install sass run - sass --watch public/sass/common.scss:public/css/styles.css
+//Place imports at the bottom of this file to be included in the styles.css
+
+$base-color: #f0f0f0;
+$orange: #FF530D;
+$red: #FF0000;
+$gray: #777777;
+$serif: "Times New Roman", Times, serif;
+
+.navbar .nav>li>a.brand {
+    padding-left:20px;
+    margin-left:0
+}
+
+.content {
+    margin-top:70px;
+    width:100%
+}
+
+[class*="profile"] {
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 150px;
+    border: 10px solid $orange;
+    overflow: hidden;
+}
+
+footer {
+    position:fixed;
+    left:0;
+    bottom:0;
+    height:30px;
+    width:100%;
+    background:#ddd;
+    -webkit-box-shadow:0 8px 6px 6px black;
+    -moz-box-shadow:0 8px 6px 6px black;
+    box-shadow:0 8px 6px 6px black
+}
+
+footer p {
+    padding:5px 0 12px 10px
+}
+
+@media (max-width: 992px) {
+    .sm-text-center {
+        text-align: center;
+    }
+}
+
+@import "user-profile.scss";
+@import "user-experience.scss";
