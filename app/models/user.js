@@ -131,6 +131,7 @@ UserSchema.methods = {
      */
     mapToUi: function() {
             return {
+                id: this.id,
                 name: this.name
             };
         }

@@ -1,0 +1,14 @@
+<section data-ng-controller="ExperiencesController" data-ng-init="findOne()">
+    <span>{{experience.DateAwarded | date:'medium'}}</span> /
+    <span>{{experience.SourcePeepName}}</span>
+    <h2>{{experience.title}}</h2>
+    <div data-ng-show="global.user._id == experience.user._id">
+        <a class="btn" href="/#!/xp/{{experience._id}}/edit">
+        	<i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div>{{experience.content}}</div>
+</section>
