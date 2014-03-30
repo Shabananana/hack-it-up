@@ -1,4 +1,4 @@
-#user-experience-header {
+.user-experience-header {
     height: 190px;
     border: 1px solid;
     padding: 22px;
@@ -93,18 +93,15 @@
 
         &:after {
             content: "";
-            content: "";
             display: block;
             position: absolute;
             right: 0;
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 10px 10px 0 0px;
+            border-width: 10px 10px 0 0;
             border-color: darken($orange, 20%) transparent transparent transparent;
-            line-height: 0px;
-            _border-color: darken($orange, 20%) #000000 #000000 #000000;
-            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+            line-height: 0;
         }
     }
 }

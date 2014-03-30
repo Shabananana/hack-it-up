@@ -91,7 +91,7 @@ exports.show = function(req, res) {
  * List of Experiences
  */
 exports.all = function(req, res) {
-    Experience.find().sort('-created').populate('user', 'name username').exec(function(err, experiences) {
+    Experience.find().sort('-created').populate('awarder', 'name username').populate('awardee', 'name username').exec(function(err, experiences) {
         if (err) {
             res.render('error', {
                 status: 500

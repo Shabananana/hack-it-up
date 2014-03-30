@@ -40,21 +40,23 @@ footer p {
 @media (max-width: 992px) {
   .sm-text-center {
     text-align: center; } }
-#user-profile h2, #user-profile h3 {
+.user-profile h2, .user-profile h3 {
   margin: 0 0 5px; }
-#user-profile .lead span {
+.user-profile .lead span {
   display: block; }
 
 .user-row {
+    border-top: 1px solid #dddddd;
     border-top: 1px solid rgba(0,0,0,0.2);
     padding: 5px 0;
 }
 
 .user-row:last-of-type {
+    border-bottom: 1px solid #dddddd;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-#user-experience-header {
+.user-experience-header {
   height: 190px;
   border: 1px solid;
   padding: 22px;
@@ -73,13 +75,13 @@ footer p {
   /* IE10+ */
   background: linear-gradient(to bottom, #131313 0%, #383838 100%);
   /* W3C */ }
-  #user-experience-header .profile-medium {
+  .user-experience-header .profile-medium {
     float: left;
     border-width: 0;
     width: 140px;
     border-radius: 70px;
     margin: 0; }
-  #user-experience-header .experience-points {
+  .user-experience-header .experience-points {
     float: left;
     padding-left: 20px;
     color: #f0f0f0;
@@ -135,18 +137,15 @@ footer p {
     box-shadow: -3px 3px 2px rgba(0, 0, 0, 0.3); }
     .experience-row .experience-awarded:after {
       content: "";
-      content: "";
       display: block;
       position: absolute;
       right: 0;
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 10px 10px 0 0px;
+      border-width: 10px 10px 0 0;
       border-color: #a63000 transparent transparent transparent;
-      line-height: 0px;
-      _border-color: #a63000 black black black;
-      _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000'); }
+      line-height: 0;}
 
 @media only screen and (max-width: 489px) {
   .experience-row .experience-meta {

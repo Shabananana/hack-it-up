@@ -1,6 +1,6 @@
 <section data-ng-controller="UsersController" data-ng-init="find()">
     <h1 data-ng-hide="!users || users.length">No users yet. HOW CAN THIS BE?!?!?!?!</h1>
-    <div id="user-profile" class="container user-row" data-ng-repeat="user in users">
+    <div id="user-profile" class="container user-row user-profile " data-ng-repeat="user in users">
         <div class="row-fluid">
             <div class="col-md-5">
                 <img ng-src="{{user.google.picture}}" class="profile-small img-responsive"/>

@@ -1,7 +1,9 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+    <h1>{{article.awardee.name}}</h1>
     <span>{{article.created | date:'medium'}}</span> /
-    <span>{{article.user.name}}</span>
-    <h2>{{article.title}}</h2>
+    <br/>
+    <h2>{{article.xp}}</h2>
+    <h4>Awarded by: {{article.awarder.name}}</h4>
     <div data-ng-show="global.user._id == article.user._id">
         <a class="btn" href="/#!/articles/{{article._id}}/edit">
         	<i class="glyphicon glyphicon-edit"></i>
@@ -10,5 +12,5 @@
             <i class="glyphicon glyphicon-trash"></i>
         </a>
     </div>
-    <div>{{article.content}}</div>
+    <div>{{article.description}}</div>
 </section>

@@ -1,4 +1,4 @@
-#user-profile  {
+.user-profile  {
 	h2, h3 {
 	    margin: 0 0 5px;
 	}
@@ -8,10 +8,12 @@
 }
 
 .user-row {
+    border-top: 1px solid #dddddd;
     border-top: 1px solid rgba(0,0,0,0.2);
     padding: 5px 0;
 
     &.last-of-type {
+      border-bottom: 1px solid #dddddd;
       border-bottom: 1px solid rgba(0,0,0,0.2);
     }
 }
