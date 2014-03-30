@@ -33,19 +33,19 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
         templateUrl: 'views/users/view.html'
     })
       .state('all experiences', {
-        url: '/xp',
+        url: '/experiences',
         templateUrl: 'views/experiences/list.html'
     })
       .state('create experience', {
-        url: '/xp/create',
+        url: '/experiences/create',
         templateUrl: 'views/experiences/create.html'
     })
       .state('edit experience', {
-        url: '/xp/:articleId/edit',
+        url: '/experiences/:experienceId/edit',
         templateUrl: 'views/experiences/edit.html'
     })
       .state('experience by id', {
-        url: '/xp/:articleId',
+        url: '/experiences/:experienceId',
         templateUrl: 'views/experiences/view.html'
     })
       .state('home', {

@@ -1,6 +1,3 @@
-/**
- * Created by Jeffrey on 3/29/2014.
- */
 'use strict';
 
 /**
@@ -28,7 +25,8 @@ exports.experience = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
     var experience = new Experience(req.body);
-    experience.user = req.user;
+    experience.awardee = req.user;
+    experience.awarder = req.user;
 
     experience.save(function(err) {
         if (err) {
@@ -91,7 +89,7 @@ exports.show = function(req, res) {
  * List of Experiences
  */
 exports.all = function(req, res) {
-    Experience.find().sort('-created').populate('awarder', 'name username').populate('awardee', 'name username').exec(function(err, experiences) {
+    Experience.find().sort('-created').populate([{path: 'awarder', select: 'name username'}, {path: 'awardee', select: 'name username'}]).exec(function(err, experiences) {
         if (err) {
             res.render('error', {
                 status: 500

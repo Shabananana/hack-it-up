@@ -1,58 +1,62 @@
-/**
- * Created by Jeffrey on 3/29/2014.
- */
 'use strict';
 
 /**
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    xpMin = [-250, 'The xp you are awarding({VALUE}) is beneath the limit ({MIN}).'],
-    xpMax = [250, 'The xp you are awarding({VALUE}) is above the limit ({MAX}).'];
+    Schema = mongoose.Schema;
 
 
 /**
  * Experience Schema
  */
 var ExperienceSchema = new Schema({
-    DateAwarded: {
+    created: {
         type: Date,
         default: Date.now
     },
-    SourcePeepName: {
+    xp: {
+        type: Number,
+        min: [-250, 'The xp you are awarding({VALUE}) is beneath the limit ({MIN}).'],
+        max: [250, 'The xp you are awarding({VALUE}) is over the limit ({MAX}).'],
+        required: true
+    },
+    description: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: true
     },
-    SourcePeepId: {
+    awarder: {
         type: Schema.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     },
-    Description: {
-        type: String,
-        default: '',
-        trim: true
-    },
-    XP: {
-        type: { type: Number, min: xpMin, max: xpMax }
-    },
-    PeepId: {
+    awardee: {
         type: Schema.ObjectId,
-        ref: 'User'
-    },
-    user: {
-        type: Schema.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     }
 });
 
 /**
  * Validations
  */
-ExperienceSchema.path('Description').validate(function(description) {
+ExperienceSchema.path('description').validate(function(description) {
     return description.length;
 }, 'Description cannot be blank');
+
+ExperienceSchema.path('xp').validate(function(xp) {
+    return (xp >= -250 && xp <= 250);
+}, 'XP must fall between the min and max allowed values.');
+
+ExperienceSchema.path('awarder').validate(function(awarder) {
+    return awarder.length;
+}, 'Awarder cannot be blank.');
+
+ExperienceSchema.path('awardee').validate(function(awardee) {
+    return awardee.length;
+}, 'Awardee cannot be blank.');
 
 /**
  * Statics
@@ -60,7 +64,7 @@ ExperienceSchema.path('Description').validate(function(description) {
 ExperienceSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate('user', 'name username').exec(cb);
+    }).populate([{path: 'awarder', select: 'name username'}, {path: 'awardee', select: 'name username'}]).exec(cb);
 };
 
 mongoose.model('Experience', ExperienceSchema);

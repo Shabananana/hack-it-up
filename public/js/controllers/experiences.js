@@ -1,6 +1,3 @@
-/**
- * Created by Jeffrey on 3/29/2014.
- */
 'use strict';
 
 angular.module('mean.experiences').controller('ExperiencesController', ['$scope', '$stateParams', '$location', 'Global', 'Experiences', function ($scope, $stateParams, $location, Global, Experiences) {
@@ -8,17 +5,18 @@ angular.module('mean.experiences').controller('ExperiencesController', ['$scope'
 
     $scope.create = function() {
         var experience = new Experiences({
-            Description: this.Description,
-            SourcePeepName: this.SourcePeepName,
-            XP: this.XP
+            awardee: this.awardee,
+            xp: this.xp,
+            created: this.created,
+            description: this.description
         });
         experience.$save(function(response) {
-            $location.path('xp/' + response._id);
+            $location.path('experiences/' + response._id);
         });
 
-        this.Description = '';
-        this.SourcePeepName = '';
-        this.XP = 0;
+        this.awardee = '';
+        this.description = '';
+        this.xp = 0;
     };
 
     $scope.remove = function(experience) {
@@ -33,7 +31,7 @@ angular.module('mean.experiences').controller('ExperiencesController', ['$scope'
         }
         else {
             $scope.experience.$remove();
-            $location.path('xp');
+            $location.path('experiences');
         }
     };
 
@@ -45,7 +43,7 @@ angular.module('mean.experiences').controller('ExperiencesController', ['$scope'
         experience.updated.push(new Date().getTime());
 
         experience.$update(function() {
-            $location.path('xp/' + experience._id);
+            $location.path('experiences/' + experience._id);
         });
     };
 

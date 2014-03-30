@@ -1,12 +1,14 @@
 <section data-ng-controller="ExperiencesController" data-ng-init="find()">
 	<ul class="articles unstyled">
 		<li data-ng-repeat="experience in experiences">
-			<span>{{experience.DateCreated | date:'medium'}}</span> /
-			<span>{{experience.SourcePeepName}}</span>
-            <span>{{experience.XP}}</span>
-			<h2><a data-ng-href="#!/articles/{{experience._id}}">{{experience.experience._id}}</a></h2>
-			<div>{{experience.Description}}</div>
+            <h2>{{experience.awardee.name}}</h2>
+            <br/>
+			<span>{{experience.created | date:'medium'}}</span>
+            <h3>{{experience.xp}}</h3>
+			<h4>Awarded by: {{experience.awarder.name}}</h4>
+			<h2><a data-ng-href="#!/xp/{{experience._id}}">View detail</a></h2>
+			<div>{{experience.description}}</div>
 		</li>
 	</ul>
-	<h1 data-ng-hide="!experiences || experiences.length">No experiences yet. <br> Why don't you <a href="/#!/xp/create">Create One</a>?</h1>
+	<h1 data-ng-hide="!experiences || experiences.length">No articles yet. <br> Why don't you <a href="/#!/xp/create">Create One</a>?</h1>
 </section>

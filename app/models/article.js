@@ -15,48 +15,28 @@ var ArticleSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    xp: {
-        type: Number,
-        min: [-250, 'The xp you are awarding({VALUE}) is beneath the limit ({MIN}).'],
-        max: [250, 'The xp you are awarding({VALUE}) is over the limit ({MAX}).'],
-        required: true
-    },
-    description: {
+    title: {
         type: String,
         default: '',
-        trim: true,
-        required: true
+        trim: true
     },
-    awarder: {
-        type: Schema.ObjectId,
-        ref: 'User',
-        required: true
+    content: {
+        type: String,
+        default: '',
+        trim: true
     },
-    awardee: {
+    user: {
         type: Schema.ObjectId,
-        ref: 'User',
-        required: true
+        ref: 'User'
     }
 });
 
 /**
  * Validations
  */
-ArticleSchema.path('description').validate(function(description) {
-    return description.length;
-}, 'Description cannot be blank');
-
-ArticleSchema.path('xp').validate(function(xp) {
-    return (xp >= -250 && xp <= 250);
-}, 'XP must fall between the min and max allowed values.');
-
-ArticleSchema.path('awarder').validate(function(awarder) {
-    return awarder.length;
-}, 'Awarder cannot be blank.');
-
-ArticleSchema.path('awardee').validate(function(awardee) {
-    return awardee.length;
-}, 'Awardee cannot be blank.');
+ArticleSchema.path('title').validate(function(title) {
+    return title.length;
+}, 'Title cannot be blank');
 
 /**
  * Statics
@@ -64,7 +44,7 @@ ArticleSchema.path('awardee').validate(function(awardee) {
 ArticleSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate([{path: 'awarder', select: 'name username'}, {path: 'awardee', select: 'name username'}]).exec(cb);
+    }).populate('user', 'name username').exec(cb);
 };
 
 mongoose.model('Article', ArticleSchema);

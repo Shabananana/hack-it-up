@@ -1,23 +1,19 @@
 <section data-ng-controller="ExperiencesController">
 	<form class="form-horizontal col-md-6" role="form" data-ng-submit="create()">
 		<div class="form-group">
-			<label for="SourcePeepName" class="col-md-2 control-label">Source Peep Name</label>
+			<label for="description" class="col-md-2 control-label">Description</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" data-ng-model="SourcePeepName" id="SourcePeepName" placeholder="Your Name" required>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="Description" class="col-md-2 control-label">Content</label>
-			<div class="col-md-10">
-				<textarea data-ng-model="Description" id="Description" cols="30" rows="10" placeholder="Description" class="form-control" required></textarea>
+				<textarea data-ng-model="description" id="description" cols="30" rows="10" placeholder="Description" class="form-control" required></textarea>
 			</div>
 		</div>
         <div class="form-group">
-            <label for="XP" class="col-md-2 control-label">XP</label>
+            <label for="xp" class="col-md-2 control-label">XP Value</label>
             <div class="col-md-10">
-                <input type="text" class="form-control" data-ng-model="XP" id="XP" placeholder="Amount of XP" required>
+                <input type="text" class="form-control" data-ng-model="xp" id="xp" placeholder="XP Value" required>
             </div>
         </div>
+        <input type="hidden" name="awarder" ng-model="awarder" id="awarder"/>
+        <input type="hidden" name="awardee" ng-model="awardee" id="awardee"/>
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
 				<button type="submit" class="btn btn-default">Submit</button>

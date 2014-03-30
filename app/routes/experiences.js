@@ -1,15 +1,12 @@
-/**
- * Created by Jeffrey on 3/29/2014.
- */
 'use strict';
 
-// Articles routes use articles controller
+// Experiences routes use experiences controller
 var experiences = require('../controllers/experiences');
 var authorization = require('./middlewares/authorization');
 
-// Article authorization helpers
+// Experience authorization helpers
 var hasAuthorization = function(req, res, next) {
-    if (req.article.user.id !== req.user.id) {
+    if (req.experience.user.id !== req.user.id) {
         return res.send(401, 'User is not authorized');
     }
     next();
@@ -17,13 +14,13 @@ var hasAuthorization = function(req, res, next) {
 
 module.exports = function(app) {
 
-    app.get('/xp', experiences.all);
-    app.post('/xp', authorization.requiresLogin, experiences.create);
-    app.get('/xp/:xpId', experiences.show);
-    app.put('/xp/:xpId', authorization.requiresLogin, hasAuthorization, experiences.update);
-    app.del('/xp/:xpId', authorization.requiresLogin, hasAuthorization, experiences.destroy);
+    app.get('/experiences', experiences.all);
+    app.post('/experiences', authorization.requiresLogin, experiences.create);
+    app.get('/experiences/:experienceId', experiences.show);
+    app.put('/experiences/:experienceId', authorization.requiresLogin, hasAuthorization, experiences.update);
+    app.del('/experiences/:experienceId', authorization.requiresLogin, hasAuthorization, experiences.destroy);
 
-    // Finish with setting up the articleId param
-    app.param('xpId', experiences.experience);
+    // Finish with setting up the experienceId param
+    app.param('experienceId', experiences.experience);
 
 };

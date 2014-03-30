@@ -5,18 +5,15 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 
     $scope.create = function() {
         var article = new Articles({
-            awardee: this.awardee,
-            xp: this.xp,
-            created: this.created,
-            description: this.description
+            title: this.title,
+            content: this.content
         });
         article.$save(function(response) {
             $location.path('articles/' + response._id);
         });
 
-        this.awardee = '';
-        this.description = '';
-        this.xp = 0;
+        this.title = '';
+        this.content = '';
     };
 
     $scope.remove = function(article) {
