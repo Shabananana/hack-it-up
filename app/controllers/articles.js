@@ -26,6 +26,7 @@ exports.article = function(req, res, next, id) {
 exports.create = function(req, res) {
     var article = new Article(req.body);
     article.awardee = req.user;
+    article.awarder = req.user;
 
     article.save(function(err) {
         if (err) {
@@ -88,7 +89,7 @@ exports.show = function(req, res) {
  * List of Articles
  */
 exports.all = function(req, res) {
-    Article.find().sort('-created').populate('awarder', 'name username').exec(function(err, articles) {
+    Article.find().sort('-created').populate([{path: 'awarder', select: 'name username'}, {path: 'awardee', select: 'name username'}]).exec(function(err, articles) {
         if (err) {
             res.render('error', {
                 status: 500

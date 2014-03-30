@@ -64,7 +64,7 @@ ArticleSchema.path('awardee').validate(function(awardee) {
 ArticleSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate('awarder', 'name username').exec(cb);
+    }).populate([{path: 'awarder', select: 'name username'}, {path: 'awardee', select: 'name username'}]).exec(cb);
 };
 
 mongoose.model('Article', ArticleSchema);
