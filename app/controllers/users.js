@@ -101,3 +101,25 @@ exports.user = function(req, res, next, id) {
             next();
         });
 };
+
+/**
+ * Show a user profile
+ */
+exports.show = function(req, res) {
+    res.jsonp(req.user);
+};
+
+/**
+ * List of Users
+ */
+exports.all = function(req, res) {
+    User.find().sort('-created').populate('user', 'name username created').exec(function(err, users) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(users);
+        }
+    });
+};

@@ -8,10 +8,20 @@
 
 [class*="profile"] {
   width: 300px;
-  margin: 0 auto;
-  border-radius: 150px;
+  margin: 0 auto;  border-radius: 150px;
   border: 10px solid #ff530d;
-  overflow: hidden; }
+  overflow: hidden;
+}
+
+.profile-large {
+    width: 300px;
+    border-radius: 150px;
+}
+
+.profile-small {
+    width: 120px;
+    border-radius: 100%;
+}
 
 footer {
   position: fixed;
@@ -34,6 +44,15 @@ footer p {
   margin: 0 0 5px; }
 #user-profile .lead span {
   display: block; }
+
+.user-row {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding: 5px 0;
+}
+
+.user-row:last-of-type {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
 
 #user-experience-header {
   height: 190px;

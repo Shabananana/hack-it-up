@@ -1,0 +1,19 @@
+<section data-ng-controller="UsersController" data-ng-init="find()">
+    <h1 data-ng-hide="!users || users.length">No users yet. HOW CAN THIS BE?!?!?!?!</h1>
+    <div id="user-profile" class="container user-row" data-ng-repeat="user in users">
+        <div class="row-fluid">
+            <div class="col-md-5">
+                <img ng-src="{{user.google.picture}}" class="profile-small img-responsive"/>
+            </div>
+            <div class="col-md-7 sm-text-center">
+                <h2 class="username">{{user.name}}</h2>
+                <h3 class="user-display-name">{{user.username}}</h3>
+                <p class="lead">
+                    <!--<span class="user-title">Front End Developer</span>-->
+                    <span><a data-ng-href="#!/users/{{user._id}}">View Profile</a></span>
+                    <!--<span class="user-email">user.email</span>-->
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

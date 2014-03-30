@@ -6,3 +6,12 @@
 		display: block;
 	}
 }
+
+.user-row {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding: 5px 0;
+
+    &.last-of-type {
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+}

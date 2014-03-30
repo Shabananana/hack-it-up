@@ -19,11 +19,19 @@ $serif: "Times New Roman", Times, serif;
 }
 
 [class*="profile"] {
-    width: 300px;
     margin: 0 auto;
-    border-radius: 150px;
     border: 10px solid $orange;
     overflow: hidden;
+}
+
+.profile-large {
+    width: 300px;
+    border-radius: 150px;
+}
+
+.profile-small {
+    width: 120px;
+    border-radius: 100%;
 }
 
 footer {

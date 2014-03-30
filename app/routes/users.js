@@ -16,6 +16,12 @@ module.exports = function(app, passport) {
     // Setting up the userId param
     app.param('userId', users.user);
 
+    // Get list of all users
+    app.get('/users', users.all);
+
+    // Get user by id
+    app.get('/users/:userId', users.show);
+
     // Setting the local strategy route
     app.post('/users/session', passport.authenticate('local', {
         failureRedirect: '/signin',

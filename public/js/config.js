@@ -24,6 +24,14 @@ angular.module('mean').config(['$stateProvider', '$urlRouterProvider',
         url: '/articles/:articleId',
         templateUrl: 'views/articles/view.html'
     })
+      .state('all users', {
+        url: '/users',
+        templateUrl: 'views/users/list.html'
+    })
+      .state('user by id', {
+        url: '/users/:userId',
+        templateUrl: 'views/users/view.html'
+    })
       .state('all experiences', {
         url: '/xp',
         templateUrl: 'views/experiences/list.html'
