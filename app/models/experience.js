@@ -17,8 +17,6 @@ var ExperienceSchema = new Schema({
     },
     xp: {
         type: Number,
-        min: [-250, 'The xp you are awarding({VALUE}) is beneath the limit ({MIN}).'],
-        max: [250, 'The xp you are awarding({VALUE}) is over the limit ({MAX}).'],
         required: true
     },
     description: {
@@ -47,8 +45,8 @@ ExperienceSchema.path('description').validate(function(description) {
 }, 'Description cannot be blank');
 
 ExperienceSchema.path('xp').validate(function(xp) {
-    return (xp >= -250 && xp <= 250);
-}, 'XP must fall between the min and max allowed values.');
+    return xp !==0;
+}, 'XP cannot be zero.');
 
 ExperienceSchema.path('awarder').validate(function(awarder) {
     return awarder.length;

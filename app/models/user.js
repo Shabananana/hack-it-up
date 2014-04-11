@@ -36,6 +36,14 @@ var UserSchema = new Schema({
         type: String,
         select: false
     },
+    xp: {
+        type: Number,
+        default: 100
+    },
+    xpIssued: {
+        type: Number,
+        default:0
+    },
     facebook: {},
     twitter: {},
     github: {},
@@ -147,7 +155,12 @@ UserSchema.methods = {
                 id: this.id,
                 name: this.name
             };
-        }
+        },
+
+    giveExperience: function(targetUser, xp, message, callback) {
+        targetUser.xp += xp;
+        callback(null);
+    }
 };
 
 mongoose.model('User', UserSchema);
